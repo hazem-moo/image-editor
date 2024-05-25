@@ -1,11 +1,7 @@
 import React, { ChangeEvent, useEffect, useRef, useState } from "react";
 
-type TypeProps = {
-  e: (e: ChangeEvent<HTMLInputElement>) => number;
-};
-
 const Filters = () => {
-  const [saturate, setSaturate] = useState(100);
+  const [saturate, setSaturate] = useState<number | string>(100);
   const [contrast, setContrast] = useState(100);
   const [brightness, setBrightness] = useState(100);
   const [sepia, setSepia] = useState(0);
@@ -67,9 +63,9 @@ const Filters = () => {
           value={saturate}
           id="inp satulate"
           step={10}
-          type
-          TypeProps={}
-          onChange={(e: TypeProps) => setSaturate(e.target.value)}
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            setSaturate(e.target.value)
+          }
         />
       </div>
       <div>
